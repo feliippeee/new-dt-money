@@ -19,8 +19,10 @@ export function SearchForm() {
         resolver: zodResolver(searchFormSchema),
     });
 
-    function handleSearchTransitions(data: SearchFormInputs) {
+    async function handleSearchTransitions(data: SearchFormInputs) {
+        await new Promise(resolve => setTimeout(resolve, 2000));
 
+        console.log(data);
     }
     return (
         <SearchFormContainer onSubmit={handleSubmit(handleSearchTransitions)}>
