@@ -2,7 +2,7 @@ import { useContextSelector } from 'use-context-selector'
 import { Header } from '../../components/Header'
 import { Summary } from '../../components/Summary'
 import { TransactionsContext } from '../../contexts/TransactionsContext'
-import { priceFormatter } from '../../utils/formattter'
+import { dateFormatter, priceFormatter } from '../../utils/formattter'
 import { SearchForm } from './components/SearchForm'
 import {
   PriceHighLight,
@@ -35,7 +35,7 @@ export function Transactions() {
                     </PriceHighLight>
                   </td>
                   <td>{transaction.category}</td>
-                  <td>{transaction.createdAt}</td>
+                  <td>{dateFormatter.format(new Date(transaction.createdAt))}</td>
                 </tr>
               )
             })}
